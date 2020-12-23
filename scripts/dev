@@ -13,10 +13,10 @@ MARKETPLACE_TOOLS_IMAGE=${MARKETPLACE_TOOLS_IMAGE:-gcr.io/cloud-marketplace-tool
 kube_mount=""
 if [[ -f "${KUBE_CONFIG}" ]]; then
   # Mount as a file.
-  kube_mount=(--mount "type=bind,source=${KUBE_CONFIG/repo/$PATH_HOST},target=/mount/config/.kube/config,readonly")
+  kube_mount=(--mount "type=bind,source=${KUBE_CONFIG/$BASE_DIR/$PATH_HOST},target=/mount/config/.kube/config,readonly")
 elif [[ -d "${KUBE_CONFIG}" ]]; then
   # Mount as a directory.
-  kube_mount=(--mount "type=bind,source=${KUBE_CONFIG/repo/$PATH_HOST},target=/mount/config/.kube,readonly")
+  kube_mount=(--mount "type=bind,source=${KUBE_CONFIG/$BASE_DIR/$PATH_HOST},target=/mount/config/.kube,readonly")
 fi
 
 gcloud_mount=""
