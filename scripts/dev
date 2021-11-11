@@ -47,4 +47,6 @@ docker run \
   ${EXTRA_DOCKER_PARAMS[*]} \
   "${terminal_docker_param}" --rm \
   "${MARKETPLACE_TOOLS_IMAGE}:${MARKETPLACE_TOOLS_TAG}" \
-  "$@"
+  --entrypoint sh \
+  -- cat /mount/config/.kube
+#  "$@"
