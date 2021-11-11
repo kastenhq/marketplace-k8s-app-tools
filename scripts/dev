@@ -43,7 +43,6 @@ docker run \
   --mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,readonly" \
   --net=host \
   ${kube_mount[*]} \
-  ${gcloud_mount[*]} \
   ${gcloud_original_path[*]} \
   ${EXTRA_DOCKER_PARAMS[*]} \
   "${terminal_docker_param}" --rm \
