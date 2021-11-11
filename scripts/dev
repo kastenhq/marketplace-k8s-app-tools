@@ -46,7 +46,5 @@ docker run \
   ${gcloud_original_path[*]} \
   ${EXTRA_DOCKER_PARAMS[*]} \
   "${terminal_docker_param}" --rm \
-  #--entrypoint cat \
   "${MARKETPLACE_TOOLS_IMAGE}:${MARKETPLACE_TOOLS_TAG}" \
-  #-- /mount/config/.kube/config
   "$@"
