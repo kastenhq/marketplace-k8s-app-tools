@@ -46,7 +46,7 @@ echo "Logs stored in $VERIFICATION_LOGS_PATH" | tee "$VERIFICATION_LOGS_PATH/ver
 
 docker run \
   --mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,readonly" \
-  --mount "type=bind,source=$VERIFICATION_LOGS_PATH,target=/logs" \
+  --mount "type=bind,source=${VERIFICATION_LOGS_PATH/$BASE_DIR/$PATH_HOST},target=/logs" \
   --net=${DOCKER_NETWORK} \
   ${kube_mount[*]} \
   ${gcloud_original_path[*]} \
